@@ -1,14 +1,13 @@
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 
 const Code = require('code');
 const FormData = require('form-data');
 const Hapi = require('hapi');
 const Lab = require('lab');
-const Magik = require('magik');
-const sinon = require('sinon');
 const streamToPromise = require('stream-to-promise');
 
 const lab = exports.lab = Lab.script();
@@ -62,21 +61,17 @@ lab.experiment('houdin', () => {
 
     lab.test('should return error if the file type cannot be guessed', (done) => {
 
-        sinon.stub(Magik, 'guess');
-        Magik.guess.yieldsAsync(new Error());
+        const invalid = path.join(os.tmpdir(), 'invalid');
 
-        // Use payload with a file of a known type to ensure Magik is used.
-        const file = path.join(__dirname, 'static', 'file.gif');
+        fs.createWriteStream(invalid).end(new Buffer([0x00]));
 
         const form = new FormData();
-        form.append('file', fs.createReadStream(file));
+        form.append('file', fs.createReadStream(invalid));
         form.append('foo', 'bar');
 
         streamToPromise(form).then((payload) => {
 
             server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
-
-                Magik.guess.restore();
 
                 Code.expect(response.statusCode).to.equal(400);
                 Code.expect(response.result).to.include(['message', 'validation']);
@@ -91,21 +86,17 @@ lab.experiment('houdin', () => {
 
     lab.test('should return error if the file type is not known', (done) => {
 
-        sinon.stub(Magik, 'guess');
-        Magik.guess.yieldsAsync(null, []);
+        const unknown = path.join(os.tmpdir(), 'unknown');
 
-        // Use payload with a file of a known type to ensure Magik is used.
-        const file = path.join(__dirname, 'static', 'file.gif');
+        fs.createWriteStream(unknown).end(new Buffer([0x00, 0x00]));
 
         const form = new FormData();
-        form.append('file', fs.createReadStream(file));
+        form.append('file', fs.createReadStream(unknown));
         form.append('foo', 'bar');
 
         streamToPromise(form).then((payload) => {
 
             server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
-
-                Magik.guess.restore();
 
                 Code.expect(response.statusCode).to.equal(400);
                 Code.expect(response.result).to.include(['message', 'validation']);
@@ -120,13 +111,16 @@ lab.experiment('houdin', () => {
 
     lab.test('should return error if some file in the payload is not allowed', (done) => {
 
-        const file1 = path.join(__dirname, 'static', 'file.gif');
-        const file2 = path.join(__dirname, 'static', 'file.png');
+        const png = path.join(os.tmpdir(), 'foo.png');
+        const gif = path.join(os.tmpdir(), 'foo.gif');
+
+        fs.createWriteStream(png).end(new Buffer([0x89, 0x50]));
+        fs.createWriteStream(gif).end(new Buffer([0x47, 0x49]));
 
         const form = new FormData();
-        form.append('file1', fs.createReadStream(file1));
-        form.append('file2', fs.createReadStream(file2));
-        form.append('file3', fs.createReadStream(file1));
+        form.append('file1', fs.createReadStream(gif));
+        form.append('file2', fs.createReadStream(png));
+        form.append('file3', fs.createReadStream(gif));
         form.append('foo', 'bar');
 
         streamToPromise(form).then((payload) => {
@@ -146,11 +140,13 @@ lab.experiment('houdin', () => {
 
     lab.test('should return control to the server if all files the payload are allowed', (done) => {
 
-        const file = path.join(__dirname, 'static', 'file.png');
+        const png = path.join(os.tmpdir(), 'foo.png');
+
+        fs.createWriteStream(png).end(new Buffer([0x89, 0x50]));
 
         const form = new FormData();
-        form.append('file1', fs.createReadStream(file));
-        form.append('file2', fs.createReadStream(file));
+        form.append('file1', fs.createReadStream(png));
+        form.append('file2', fs.createReadStream(png));
         form.append('foo', 'bar');
 
         streamToPromise(form).then((payload) => {
