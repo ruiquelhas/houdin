@@ -11,6 +11,7 @@ Also works as a standalone module.
     - [`validate(payload, options, fn)`](#validatepayload-options-fn)
         - [Hapi](#hapi)
         - [Standalone](#standalone)
+- [Supported File Types](#supported-file-types)
 
 ## Installation
 Install via [NPM](https://www.npmjs.org).
@@ -63,19 +64,23 @@ server.route({
 const Houdin = require('houdin');
 
 const options = { whitelist: ['png'] };
-const png = new Buffer([0x89, 0x50]);
-const gif = new Buffer([0x47, 0x49]);
 
-Houdin.validate({ file: png }, options, (err, value) => {
+Houdin.validate({ file: new Buffer([0x89, 0x50]) }, options, (err, value) => {
+
     console.log(err); // null
-    console.log(value); // { file: <Buffer 80 59> }
+    console.log(value); // { file: <Buffer 89 50> }
 });
 
-Houdin.validate({ file: gif }, options, (err, value) => {
+Houdin.validate({ file: new Buffer([0x47, 0x49]) }, options, (err, value) => {
+
     console.log(err); // [ValidationError: child "file" fails because ["file" type is not allowed]]
     console.log(value); // undefined
 });
 ```
+
+## Supported File Types
+
+The same as [magik](https://github.com/ruiquelhas/magik#supported-file-types).
 
 [coveralls-img]: https://coveralls.io/repos/ruiquelhas/houdin/badge.svg
 [coveralls-url]: https://coveralls.io/github/ruiquelhas/houdin
