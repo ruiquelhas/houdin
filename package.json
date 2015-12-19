@@ -15,8 +15,10 @@
     "url": "git+https://github.com/ruiquelhas/houdin.git"
   },
   "keywords": [
-    "magik",
-    "houdin",
+    "file",
+    "hapi",
+    "joi",
+    "signature",
     "validation"
   ],
   "author": "Rui Quelhas <rfpquelhas@gmail.com>",
