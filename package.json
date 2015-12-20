@@ -39,7 +39,7 @@
     "hoek": "3.x.x",
     "items": "2.x.x",
     "lodash.some": "3.x.x",
-    "magik": "1.x.x"
+    "magik": "1.0.3"
   },
   "engines": {
     "node": ">= 4.0.0"
