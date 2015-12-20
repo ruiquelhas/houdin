@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.1.2](https://github.com/ruiquelhas/houdin/tree/v1.1.2) (2015-12-20)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.1...v1.1.2)
+
+**Merged pull requests:**
+
+- Update magik to version 1.0.3 [\#11](https://github.com/ruiquelhas/houdin/pull/11) ([ruiquelhas](https://github.com/ruiquelhas))
+- Update all dependencies 🌴 [\#10](https://github.com/ruiquelhas/houdin/pull/10) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v1.1.1](https://github.com/ruiquelhas/houdin/tree/v1.1.1) (2015-12-19)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.0...v1.1.1)
 

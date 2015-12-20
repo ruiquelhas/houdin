@@ -1,6 +1,6 @@
 {
   "name": "houdin",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Route-level file type validation for hapi parsed in-memory request payloads",
   "main": "lib/index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "hoek": "3.x.x",
     "items": "2.x.x",
     "lodash.some": "3.x.x",
-    "magik": "1.0.3"
+    "magik": "1.x.x"
   },
   "engines": {
     "node": ">= 4.0.0"
