@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.1.3](https://github.com/ruiquelhas/houdin/tree/v1.1.3) (2016-01-16)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.2...v1.1.3)
+
+**Merged pull requests:**
+
+- Update dependencies [\#12](https://github.com/ruiquelhas/houdin/pull/12) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v1.1.2](https://github.com/ruiquelhas/houdin/tree/v1.1.2) (2015-12-20)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.1...v1.1.2)
 
