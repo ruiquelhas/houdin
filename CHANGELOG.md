@@ -1,5 +1,13 @@
 # Changelog
 
+## [v2.0.0](https://github.com/ruiquelhas/houdin/tree/v2.0.0) (2016-03-28)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.3...v2.0.0)
+
+**Implemented enhancements:**
+
+- Replace magik with a better alternative [\#13](https://github.com/ruiquelhas/houdin/issues/13)
+- Replace magik with file-type [\#14](https://github.com/ruiquelhas/houdin/pull/14) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v1.1.3](https://github.com/ruiquelhas/houdin/tree/v1.1.3) (2016-01-16)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.2...v1.1.3)
 
