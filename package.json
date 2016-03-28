@@ -36,10 +36,8 @@
     "stream-to-promise": "1.x.x"
   },
   "dependencies": {
-    "hoek": "3.x.x",
-    "items": "2.x.x",
-    "lodash.some": "4.x.x",
-    "magik": "1.x.x"
+    "file-type": "3.x.x",
+    "hoek": "3.x.x"
   },
   "engines": {
     "node": ">=4.0.0"
