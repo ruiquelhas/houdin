@@ -1,16 +1,15 @@
 # houdin
-Route-level file type validation for [hapi](https://github.com/hapijs/hapi) parsed in-memory `multipart/form-data` request payloads.
-Also works as a standalone module.
+Route-level file type validation for [hapi](https://github.com/hapijs/hapi) parsed in-memory `multipart/form-data` request payloads. Also works as a standalone module.
 
 [![NPM Version][fury-img]][fury-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Dependencies][david-img]][david-url]
 
 ## Table of Contents
-
 - [Installation](#installation)
 - [Usage](#usage)
-    - [`validate(payload, options, fn)`](#validatepayload-options-fn)
-        - [Hapi](#hapi)
-        - [Standalone](#standalone)
+  - [`validate(payload, options, fn)`](#validatepayload-options-fn)
+    - [Hapi](#hapi)
+    - [Standalone](#standalone)
+
 - [Supported File Types](#supported-file-types)
 
 ## Installation
@@ -21,11 +20,8 @@ $ npm install houdin
 ```
 
 ## Usage
-
 ### `validate(payload, options, fn)`
-
-Validates all `Buffer` values in a `payload` given a `whitelist` of file types provided in the `options`.
-Results in a [joi](https://github.com/hapijs/joi)-like `ValidationError` if some file type is not allowed or unknown otherwise it returns the original parsed payload to account for additional custom validation.
+Validates all `Buffer` values in a `payload` given a `whitelist` of file types provided in the `options`. Results in a [joi](https://github.com/hapijs/joi)-like `ValidationError` if some file type is not allowed or unknown otherwise it returns the original parsed payload to account for additional custom validation.
 
 #### Hapi
 
@@ -33,13 +29,13 @@ Results in a [joi](https://github.com/hapijs/joi)-like `ValidationError` if some
 const Hapi = require('hapi');
 const Houdin = require('houdin');
 
-server = new Hapi.Server();
+const server = new Hapi.Server();
 
 server.connection({
     routes: {
         validate: {
             options: {
-                whitelist: ['png']
+                whitelist: ['image/png']
             }
         }
     }
@@ -63,15 +59,23 @@ server.route({
 ```js
 const Houdin = require('houdin');
 
-const options = { whitelist: ['png'] };
+const options = { whitelist: ['image/png'] };
+const png = new Buffer('89504e47', 'hex');
 
-Houdin.validate({ file: new Buffer([0x89, 0x50]) }, options, (err, value) => {
+Houdin.validate({ file: png }, options, (err, value) => {
 
     console.log(err); // null
-    console.log(value); // { file: <Buffer 89 50> }
+    console.log(value); // { file: <Buffer 89 50 4e 47> }
 });
+```
 
-Houdin.validate({ file: new Buffer([0x47, 0x49]) }, options, (err, value) => {
+```js
+const Houdin = require('houdin');
+
+const options = { whitelist: ['image/png'] };
+const gif = new Buffer('47494638', 'hex');
+
+Houdin.validate({ file: gif }, options, (err, value) => {
 
     console.log(err); // [ValidationError: child "file" fails because ["file" type is not allowed]]
     console.log(value); // undefined
@@ -79,8 +83,7 @@ Houdin.validate({ file: new Buffer([0x47, 0x49]) }, options, (err, value) => {
 ```
 
 ## Supported File Types
-
-The same as [magik](https://github.com/ruiquelhas/magik#supported-file-types).
+The same as [file-type](https://github.com/sindresorhus/file-type#supported-file-types).
 
 [coveralls-img]: https://coveralls.io/repos/ruiquelhas/houdin/badge.svg
 [coveralls-url]: https://coveralls.io/github/ruiquelhas/houdin
