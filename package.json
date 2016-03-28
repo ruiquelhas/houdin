@@ -31,8 +31,8 @@
     "code": "2.x.x",
     "coveralls": "2.x.x",
     "form-data": "0.x.x",
-    "hapi": "12.x.x",
-    "lab": "8.x.x",
+    "hapi": "13.x.x",
+    "lab": "10.x.x",
     "stream-to-promise": "1.x.x"
   },
   "dependencies": {
@@ -42,6 +42,6 @@
     "magik": "1.x.x"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">=4.0.0"
   }
 }
