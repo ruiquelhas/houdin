@@ -9,7 +9,6 @@ Route-level file type validation for [hapi](https://github.com/hapijs/hapi) pars
   - [`validate(payload, options, fn)`](#validatepayload-options-fn)
     - [Hapi](#hapi)
     - [Standalone](#standalone)
-
 - [Supported File Types](#supported-file-types)
 
 ## Installation
