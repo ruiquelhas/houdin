@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.1](https://github.com/ruiquelhas/houdin/tree/v2.0.1) (2016-04-01)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.0...v2.0.1)
+
+**Merged pull requests:**
+
+- Fix documentation TOC spacing [\#15](https://github.com/ruiquelhas/houdin/pull/15) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.0](https://github.com/ruiquelhas/houdin/tree/v2.0.0) (2016-03-28)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v1.1.3...v2.0.0)
 
