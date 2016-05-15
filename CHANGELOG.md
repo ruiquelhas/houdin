@@ -1,5 +1,17 @@
 # Changelog
 
+## [v2.0.2](https://github.com/ruiquelhas/houdin/tree/v2.0.2) (2016-05-15)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.1...v2.0.2)
+
+**Closed issues:**
+
+- Update outdated dependencies [\#18](https://github.com/ruiquelhas/houdin/issues/18)
+- Add support for node v6 [\#17](https://github.com/ruiquelhas/houdin/issues/17)
+
+**Merged pull requests:**
+
+- Update dependencies and node version scope [\#19](https://github.com/ruiquelhas/houdin/pull/19) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.1](https://github.com/ruiquelhas/houdin/tree/v2.0.1) (2016-04-01)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.0...v2.0.1)
 
