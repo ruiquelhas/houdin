@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/ruiquelhas/houdin#readme",
   "devDependencies": {
-    "code": "2.x.x",
+    "code": "3.x.x",
     "coveralls": "2.x.x",
     "hapi": "13.x.x",
     "lab": "10.x.x",
