@@ -5,10 +5,9 @@ const Os = require('os');
 const Path = require('path');
 
 const Code = require('code');
-const FormData = require('form-data');
+const Form = require('multi-part').buffer;
 const Hapi = require('hapi');
 const Lab = require('lab');
-const StreamToPromise = require('stream-to-promise');
 
 const Houdin = require('../lib');
 
@@ -47,12 +46,16 @@ lab.experiment('houdin', () => {
 
     lab.test('should return control to the server if the payload does not contain any file', (done) => {
 
-        const form = new FormData();
+        const form = new Form();
         form.append('foo', 'bar');
 
-        StreamToPromise(form).then((payload) => {
+        form.getWithOptions((err, data) => {
 
-            server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
+            if (err) {
+                return done(err);
+            }
+
+            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
 
                 Code.expect(response.statusCode).to.equal(200);
                 done();
@@ -66,13 +69,17 @@ lab.experiment('houdin', () => {
 
         Fs.createWriteStream(unknown).end(new Buffer('0000', 'hex'));
 
-        const form = new FormData();
+        const form = new Form();
         form.append('file', Fs.createReadStream(unknown));
         form.append('foo', 'bar');
 
-        StreamToPromise(form).then((payload) => {
+        form.getWithOptions((err, data) => {
 
-            server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
+            if (err) {
+                return done(err);
+            }
+
+            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
 
                 Code.expect(response.statusCode).to.equal(400);
                 Code.expect(response.result).to.include(['message', 'validation']);
@@ -93,15 +100,19 @@ lab.experiment('houdin', () => {
         Fs.createWriteStream(png).end(new Buffer('89504e47', 'hex'));
         Fs.createWriteStream(gif).end(new Buffer('47494638', 'hex'));
 
-        const form = new FormData();
+        const form = new Form();
         form.append('file1', Fs.createReadStream(gif));
         form.append('file2', Fs.createReadStream(png));
         form.append('file3', Fs.createReadStream(gif));
         form.append('foo', 'bar');
 
-        StreamToPromise(form).then((payload) => {
+        form.getWithOptions((err, data) => {
 
-            server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
+            if (err) {
+                return done(err);
+            }
+
+            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
 
                 Code.expect(response.statusCode).to.equal(400);
                 Code.expect(response.result).to.include(['message', 'validation']);
@@ -120,14 +131,18 @@ lab.experiment('houdin', () => {
 
         Fs.createWriteStream(png).end(new Buffer('89504e47', 'hex'));
 
-        const form = new FormData();
+        const form = new Form();
         form.append('file1', Fs.createReadStream(png));
         form.append('file2', Fs.createReadStream(png));
         form.append('foo', 'bar');
 
-        StreamToPromise(form).then((payload) => {
+        form.getWithOptions((err, data) => {
 
-            server.inject({ headers: form.getHeaders(), method: 'POST', payload: payload, url: '/' }, (response) => {
+            if (err) {
+                return done(err);
+            }
+
+            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
 
                 Code.expect(response.statusCode).to.equal(200);
                 done();
