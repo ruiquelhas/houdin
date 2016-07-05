@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.4](https://github.com/ruiquelhas/houdin/tree/v2.0.4) (2016-07-05)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.3...v2.0.4)
+
+**Merged pull requests:**
+
+- Update test suite to use stream payloads [\#21](https://github.com/ruiquelhas/houdin/pull/21) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.3](https://github.com/ruiquelhas/houdin/tree/v2.0.3) (2016-06-07)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.2...v2.0.3)
 
