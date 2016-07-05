@@ -5,7 +5,7 @@ const Os = require('os');
 const Path = require('path');
 
 const Code = require('code');
-const Form = require('multi-part').buffer;
+const Form = require('multi-part');
 const Hapi = require('hapi');
 const Lab = require('lab');
 
@@ -49,17 +49,10 @@ lab.experiment('houdin', () => {
         const form = new Form();
         form.append('foo', 'bar');
 
-        form.getWithOptions((err, data) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.get(), url: '/' }, (response) => {
 
-            if (err) {
-                return done(err);
-            }
-
-            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
-
-                Code.expect(response.statusCode).to.equal(200);
-                done();
-            });
+            Code.expect(response.statusCode).to.equal(200);
+            done();
         });
     });
 
@@ -73,22 +66,15 @@ lab.experiment('houdin', () => {
         form.append('file', Fs.createReadStream(unknown));
         form.append('foo', 'bar');
 
-        form.getWithOptions((err, data) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.get(), url: '/' }, (response) => {
 
-            if (err) {
-                return done(err);
-            }
-
-            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
-
-                Code.expect(response.statusCode).to.equal(400);
-                Code.expect(response.result).to.include(['message', 'validation']);
-                Code.expect(response.result.message).to.equal('child \"file\" fails because [\"file\" type is unknown]');
-                Code.expect(response.result.validation).to.include(['source', 'keys']);
-                Code.expect(response.result.validation.source).to.equal('payload');
-                Code.expect(response.result.validation.keys).to.include('file');
-                done();
-            });
+            Code.expect(response.statusCode).to.equal(400);
+            Code.expect(response.result).to.include(['message', 'validation']);
+            Code.expect(response.result.message).to.equal('child \"file\" fails because [\"file\" type is unknown]');
+            Code.expect(response.result.validation).to.include(['source', 'keys']);
+            Code.expect(response.result.validation.source).to.equal('payload');
+            Code.expect(response.result.validation.keys).to.include('file');
+            done();
         });
     });
 
@@ -106,22 +92,15 @@ lab.experiment('houdin', () => {
         form.append('file3', Fs.createReadStream(gif));
         form.append('foo', 'bar');
 
-        form.getWithOptions((err, data) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.get(), url: '/' }, (response) => {
 
-            if (err) {
-                return done(err);
-            }
-
-            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
-
-                Code.expect(response.statusCode).to.equal(400);
-                Code.expect(response.result).to.include(['message', 'validation']);
-                Code.expect(response.result.message).to.equal('child \"file1\" fails because [\"file1\" type is not allowed]');
-                Code.expect(response.result.validation).to.include(['source', 'keys']);
-                Code.expect(response.result.validation.source).to.equal('payload');
-                Code.expect(response.result.validation.keys).to.include('file1');
-                done();
-            });
+            Code.expect(response.statusCode).to.equal(400);
+            Code.expect(response.result).to.include(['message', 'validation']);
+            Code.expect(response.result.message).to.equal('child \"file1\" fails because [\"file1\" type is not allowed]');
+            Code.expect(response.result.validation).to.include(['source', 'keys']);
+            Code.expect(response.result.validation.source).to.equal('payload');
+            Code.expect(response.result.validation.keys).to.include('file1');
+            done();
         });
     });
 
@@ -136,17 +115,10 @@ lab.experiment('houdin', () => {
         form.append('file2', Fs.createReadStream(png));
         form.append('foo', 'bar');
 
-        form.getWithOptions((err, data) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.get(), url: '/' }, (response) => {
 
-            if (err) {
-                return done(err);
-            }
-
-            server.inject({ headers: data.headers, method: 'POST', payload: data.body, url: '/' }, (response) => {
-
-                Code.expect(response.statusCode).to.equal(200);
-                done();
-            });
+            Code.expect(response.statusCode).to.equal(200);
+            done();
         });
     });
 });
