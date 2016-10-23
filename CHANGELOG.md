@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.5](https://github.com/ruiquelhas/houdin/tree/v2.0.5) (2016-10-23)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.4...v2.0.5)
+
+**Merged pull requests:**
+
+- Update dependencies [\#22](https://github.com/ruiquelhas/houdin/pull/22) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.4](https://github.com/ruiquelhas/houdin/tree/v2.0.4) (2016-07-05)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.3...v2.0.4)
 
