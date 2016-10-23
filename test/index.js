@@ -60,7 +60,7 @@ lab.experiment('houdin', () => {
 
         const unknown = Path.join(Os.tmpdir(), 'unknown');
 
-        Fs.createWriteStream(unknown).end(new Buffer('0000', 'hex'));
+        Fs.createWriteStream(unknown).end(Buffer.from('0000', 'hex'));
 
         const form = new Form();
         form.append('file', Fs.createReadStream(unknown));
@@ -83,8 +83,8 @@ lab.experiment('houdin', () => {
         const png = Path.join(Os.tmpdir(), 'foo.png');
         const gif = Path.join(Os.tmpdir(), 'foo.gif');
 
-        Fs.createWriteStream(png).end(new Buffer('89504e47', 'hex'));
-        Fs.createWriteStream(gif).end(new Buffer('47494638', 'hex'));
+        Fs.createWriteStream(png).end(Buffer.from('89504e47', 'hex'));
+        Fs.createWriteStream(gif).end(Buffer.from('47494638', 'hex'));
 
         const form = new Form();
         form.append('file1', Fs.createReadStream(gif));
@@ -108,7 +108,7 @@ lab.experiment('houdin', () => {
 
         const png = Path.join(Os.tmpdir(), 'foo.png');
 
-        Fs.createWriteStream(png).end(new Buffer('89504e47', 'hex'));
+        Fs.createWriteStream(png).end(Buffer.from('89504e47', 'hex'));
 
         const form = new Form();
         form.append('file1', Fs.createReadStream(png));
