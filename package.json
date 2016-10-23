@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/ruiquelhas/houdin#readme",
   "devDependencies": {
-    "code": "3.x.x",
+    "code": "4.x.x",
     "coveralls": "2.x.x",
-    "hapi": "13.x.x",
-    "lab": "10.x.x",
+    "hapi": "15.x.x",
+    "lab": "11.x.x",
     "multi-part": "1.x.x"
   },
   "dependencies": {
@@ -39,6 +39,6 @@
     "hoek": "4.x.x"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.5.0"
   }
 }

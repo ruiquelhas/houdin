@@ -59,7 +59,7 @@ server.route({
 const Houdin = require('houdin');
 
 const options = { whitelist: ['image/png'] };
-const png = new Buffer('89504e47', 'hex');
+const png = Buffer.from('89504e47', 'hex');
 
 Houdin.validate({ file: png }, options, (err, value) => {
 
@@ -72,7 +72,7 @@ Houdin.validate({ file: png }, options, (err, value) => {
 const Houdin = require('houdin');
 
 const options = { whitelist: ['image/png'] };
-const gif = new Buffer('47494638', 'hex');
+const gif = Buffer.from('47494638', 'hex');
 
 Houdin.validate({ file: gif }, options, (err, value) => {
 
