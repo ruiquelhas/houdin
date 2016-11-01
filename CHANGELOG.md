@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.6](https://github.com/ruiquelhas/houdin/tree/v2.0.6) (2016-11-01)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.5...v2.0.6)
+
+**Merged pull requests:**
+
+- Update `multi-part` to the latest version [\#23](https://github.com/ruiquelhas/houdin/pull/23) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.5](https://github.com/ruiquelhas/houdin/tree/v2.0.5) (2016-10-23)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.4...v2.0.5)
 
