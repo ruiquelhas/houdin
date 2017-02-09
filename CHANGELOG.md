@@ -1,5 +1,13 @@
 # Changelog
 
+## [v2.0.8](https://github.com/ruiquelhas/houdin/tree/v2.0.8) (2017-02-09)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.7...v2.0.8)
+
+**Fixed bugs:**
+
+- Flaky tests run without file fixtures available [\#25](https://github.com/ruiquelhas/houdin/issues/25)
+- Ensure fake test files are created beforehand [\#26](https://github.com/ruiquelhas/houdin/pull/26) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.7](https://github.com/ruiquelhas/houdin/tree/v2.0.7) (2017-02-07)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.6...v2.0.7)
 
