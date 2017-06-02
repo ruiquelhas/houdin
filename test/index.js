@@ -50,19 +50,21 @@ lab.experiment('houdin', () => {
     lab.beforeEach((done) => {
         // Create unknown format file
         unknown = Path.join(Os.tmpdir(), 'unknown');
-        Fs.createWriteStream(unknown).on('error', done).end(Buffer.from('0000', 'hex'), done);
+        Fs.createWriteStream(unknown).on('error', done).end(Buffer.from('0000000000000000', 'hex'), done);
     });
 
     lab.beforeEach((done) => {
         // Create fake png file
         png = Path.join(Os.tmpdir(), 'foo.png');
-        Fs.createWriteStream(png).on('error', done).end(Buffer.from('89504e47', 'hex'), done);
+        Fs.createWriteStream(png).on('error', done).end(Buffer.from('89504e470d0a1a0a', 'hex'), done);
     });
 
     lab.beforeEach((done) => {
         // Create fake gif file
+        const magicNumber = ['474946383761', '474946383961'][Math.floor(Math.random())];
+
         gif = Path.join(Os.tmpdir(), 'foo.gif');
-        Fs.createWriteStream(gif).on('error', done).end(Buffer.from('47494638', 'hex'), done);
+        Fs.createWriteStream(gif).on('error', done).end(Buffer.from(magicNumber, 'hex'), done);
     });
 
     lab.test('should return control to the server if the payload does not contain any file', (done) => {
