@@ -1,5 +1,16 @@
 # Changelog
 
+## [v2.0.9](https://github.com/ruiquelhas/houdin/tree/v2.0.9) (2017-06-03)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.8...v2.0.9)
+
+**Closed issues:**
+
+- Account for `file-type` breaking change [\#27](https://github.com/ruiquelhas/houdin/issues/27)
+
+**Merged pull requests:**
+
+- Avoid file type breaking change [\#28](https://github.com/ruiquelhas/houdin/pull/28) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.8](https://github.com/ruiquelhas/houdin/tree/v2.0.8) (2017-02-09)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.7...v2.0.8)
 
