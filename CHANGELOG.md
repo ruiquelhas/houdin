@@ -1,5 +1,12 @@
 # Changelog
 
+## [v2.0.10](https://github.com/ruiquelhas/houdin/tree/v2.0.10) (2017-06-04)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.9...v2.0.10)
+
+**Fixed bugs:**
+
+- Skip validation of payloads not parsed as buffers [\#29](https://github.com/ruiquelhas/houdin/pull/29) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.9](https://github.com/ruiquelhas/houdin/tree/v2.0.9) (2017-06-03)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.8...v2.0.9)
 
