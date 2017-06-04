@@ -33,16 +33,34 @@ lab.experiment('houdin', () => {
             }
         });
 
-        server.route({
-            config: {
-                validate: {
-                    payload: Houdin.validate
-                },
-                handler: (request, reply) => reply()
-            },
+        const baseConfig = {
+            handler: (request, reply) => reply(),
+            validate: {
+                payload: Houdin.validate
+            }
+        };
+
+        server.route([{
+            config: baseConfig,
             method: 'POST',
-            path: '/'
-        });
+            path: '/data'
+        }, {
+            config: Object.assign({}, baseConfig, {
+                payload: {
+                    output: 'stream'
+                }
+            }),
+            method: 'POST',
+            path: '/stream'
+        }, {
+            config: Object.assign({}, baseConfig, {
+                payload: {
+                    output: 'file'
+                }
+            }),
+            method: 'POST',
+            path: '/file'
+        }]);
 
         done();
     });
@@ -72,7 +90,7 @@ lab.experiment('houdin', () => {
         const form = new Form();
         form.append('foo', 'bar');
 
-        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/' }, (response) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/data' }, (response) => {
 
             Code.expect(response.statusCode).to.equal(200);
             done();
@@ -85,7 +103,7 @@ lab.experiment('houdin', () => {
         form.append('file', Fs.createReadStream(unknown));
         form.append('foo', 'bar');
 
-        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/' }, (response) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/data' }, (response) => {
 
             Code.expect(response.statusCode).to.equal(400);
             Code.expect(response.result).to.include(['message', 'validation']);
@@ -105,7 +123,7 @@ lab.experiment('houdin', () => {
         form.append('file3', Fs.createReadStream(gif));
         form.append('foo', 'bar');
 
-        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/' }, (response) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/data' }, (response) => {
 
             Code.expect(response.statusCode).to.equal(400);
             Code.expect(response.result).to.include(['message', 'validation']);
@@ -124,7 +142,25 @@ lab.experiment('houdin', () => {
         form.append('file2', Fs.createReadStream(png));
         form.append('foo', 'bar');
 
-        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/' }, (response) => {
+        server.inject({ headers: form.getHeaders(), method: 'POST', payload: form.stream(), url: '/data' }, (response) => {
+
+            Code.expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    lab.test('should return control to the server if the payload is parsed as a temporary file', (done) => {
+
+        server.inject({ method: 'POST', payload: undefined, url: '/file' }, (response) => {
+
+            Code.expect(response.statusCode).to.equal(200);
+            done();
+        });
+    });
+
+    lab.test('should return control to the server if the payload is parsed as a stream', (done) => {
+
+        server.inject({ method: 'POST', payload: undefined, url: '/stream' }, (response) => {
 
             Code.expect(response.statusCode).to.equal(200);
             done();
