@@ -1,5 +1,12 @@
 # Changelog
 
+## [v3.0.0](https://github.com/ruiquelhas/houdin/tree/v3.0.0) (2017-06-06)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.10...v3.0.0)
+
+**Implemented enhancements:**
+
+- Add support to handle undefined whitelists [\#30](https://github.com/ruiquelhas/houdin/pull/30) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v2.0.10](https://github.com/ruiquelhas/houdin/tree/v2.0.10) (2017-06-04)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v2.0.9...v2.0.10)
 
