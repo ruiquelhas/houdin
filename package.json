@@ -1,6 +1,6 @@
 {
   "name": "houdin",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Route-level file type validation for hapi parsed in-memory request payloads",
   "main": "lib/index.js",
   "scripts": {

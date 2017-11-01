@@ -1,5 +1,12 @@
 # Changelog
 
+## [v4.0.1](https://github.com/ruiquelhas/houdin/tree/v4.0.1) (2017-11-01)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.0...v4.0.1)
+
+**Merged pull requests:**
+
+- Fix hapi minimum required version [\#34](https://github.com/ruiquelhas/houdin/pull/34) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v4.0.0](https://github.com/ruiquelhas/houdin/tree/v4.0.0) (2017-11-01)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v3.0.0...v4.0.0)
 
