@@ -1,7 +1,7 @@
 # houdin
 Route-level file type validation for [hapi](https://github.com/hapijs/hapi) parsed in-memory `multipart/form-data` request payloads. Also works as a standalone module.
 
-[![NPM Version][fury-img]][fury-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Dependencies][david-img]][david-url]
+[![NPM Version][version-img]][version-url] [![Build Status][travis-img]][travis-url] [![Coverage Status][coveralls-img]][coveralls-url] [![Dependencies][david-img]][david-url] [![Dev Dependencies][david-dev-img]][david-dev-url]
 
 ## Table of Contents
 - [Installation](#installation)
@@ -84,11 +84,13 @@ Houdin.validate({ file: gif }, options, (err, value) => {
 ## Supported File Types
 The same as [file-type](https://github.com/sindresorhus/file-type#supported-file-types).
 
-[coveralls-img]: https://coveralls.io/repos/ruiquelhas/houdin/badge.svg
+[coveralls-img]: https://img.shields.io/coveralls/ruiquelhas/houdin.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/github/ruiquelhas/houdin
-[david-img]: https://david-dm.org/ruiquelhas/houdin.svg
+[david-img]: https://img.shields.io/david/ruiquelhas/houdin.svg?style=flat-square
 [david-url]: https://david-dm.org/ruiquelhas/houdin
-[fury-img]: https://badge.fury.io/js/houdin.svg
-[fury-url]: https://badge.fury.io/js/houdin
-[travis-img]: https://travis-ci.org/ruiquelhas/houdin.svg
+[david-dev-img]: https://img.shields.io/david/dev/ruiquelhas/houdin.svg?style=flat-square
+[david-dev-url]: https://david-dm.org/ruiquelhas/houdin?type=dev
+[version-img]: https://img.shields.io/npm/v/houdin.svg?style=flat-square
+[version-url]: https://www.npmjs.com/package/houdin
+[travis-img]: https://img.shields.io/travis/ruiquelhas/houdin.svg?style=flat-square
 [travis-url]: https://travis-ci.org/ruiquelhas/houdin
