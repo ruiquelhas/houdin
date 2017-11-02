@@ -1,5 +1,13 @@
 # Changelog
 
+## [v4.0.2](https://github.com/ruiquelhas/houdin/tree/v4.0.2) (2017-11-02)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.1...v4.0.2)
+
+**Fixed bugs:**
+
+- Correct handling of multiple invalid file types [\#35](https://github.com/ruiquelhas/houdin/issues/35)
+- Fix handling logic for multiple invalid file types [\#36](https://github.com/ruiquelhas/houdin/pull/36) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v4.0.1](https://github.com/ruiquelhas/houdin/tree/v4.0.1) (2017-11-01)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.0...v4.0.1)
 
