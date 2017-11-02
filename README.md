@@ -59,12 +59,12 @@ server.route({
 const Houdin = require('houdin');
 
 const options = { whitelist: ['image/png'] };
-const png = Buffer.from('89504e47', 'hex');
+const png = Buffer.from('89504e470d0a1a0a', 'hex');
 
 Houdin.validate({ file: png }, options, (err, value) => {
 
     console.log(err); // null
-    console.log(value); // { file: <Buffer 89 50 4e 47> }
+    console.log(value); // { file: <Buffer 89 50 4e 47 0d 0a 1a 0a> }
 });
 ```
 
@@ -72,7 +72,7 @@ Houdin.validate({ file: png }, options, (err, value) => {
 const Houdin = require('houdin');
 
 const options = { whitelist: ['image/png'] };
-const gif = Buffer.from('47494638', 'hex');
+const gif = Buffer.from('474946383761', 'hex');
 
 Houdin.validate({ file: gif }, options, (err, value) => {
 
@@ -82,7 +82,7 @@ Houdin.validate({ file: gif }, options, (err, value) => {
 ```
 
 ## Supported File Types
-The same as [file-type](https://github.com/sindresorhus/file-type#supported-file-types).
+The same as [file-type](https://github.com/sindresorhus/file-type/tree/v7.0.0#supported-file-types).
 
 [coveralls-img]: https://img.shields.io/coveralls/ruiquelhas/houdin.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/github/ruiquelhas/houdin
