@@ -1,5 +1,17 @@
 # Changelog
 
+## [v5.0.0](https://github.com/ruiquelhas/houdin/tree/v5.0.0) (2017-11-06)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.2...v5.0.0)
+
+**Closed issues:**
+
+- Support hapi v17 [\#33](https://github.com/ruiquelhas/houdin/issues/33)
+
+**Merged pull requests:**
+
+- Add package-lock.json to version control [\#38](https://github.com/ruiquelhas/houdin/pull/38) ([ruiquelhas](https://github.com/ruiquelhas))
+- Add support for hapi v17 API [\#37](https://github.com/ruiquelhas/houdin/pull/37) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v4.0.2](https://github.com/ruiquelhas/houdin/tree/v4.0.2) (2017-11-02)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.1...v4.0.2)
 
