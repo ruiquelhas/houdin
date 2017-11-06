@@ -28,9 +28,7 @@ Validates all `Buffer` values in a `payload` given a `whitelist` of file types p
 const Hapi = require('hapi');
 const Houdin = require('houdin');
 
-const server = new Hapi.Server();
-
-server.connection({
+const server = new Hapi.Server({
     routes: {
         validate: {
             options: {
@@ -41,8 +39,14 @@ server.connection({
 });
 
 server.route({
-    config: {
+    options: {
         validate: {
+            // override the default `failAction` if you want further
+            // details about the validation error
+            failAction: (request, h, err) => {
+                // throw the error as is
+                throw err;
+            },
             payload: Houdin.validate
         },
         payload: {
@@ -61,11 +65,9 @@ const Houdin = require('houdin');
 const options = { whitelist: ['image/png'] };
 const png = Buffer.from('89504e470d0a1a0a', 'hex');
 
-Houdin.validate({ file: png }, options, (err, value) => {
+const payload = Houdin.validate({ file: png }, options);
 
-    console.log(err); // null
-    console.log(value); // { file: <Buffer 89 50 4e 47 0d 0a 1a 0a> }
-});
+console.log(payload); // { file: <Buffer 89 50 4e 47 0d 0a 1a 0a> }
 ```
 
 ```js
@@ -74,11 +76,12 @@ const Houdin = require('houdin');
 const options = { whitelist: ['image/png'] };
 const gif = Buffer.from('474946383761', 'hex');
 
-Houdin.validate({ file: gif }, options, (err, value) => {
-
+try {
+    Houdin.validate({ file: gif }, options);
+}
+catch (err) {
     console.log(err); // [ValidationError: child "file" fails because ["file" type is not allowed]]
-    console.log(value); // undefined
-});
+}
 ```
 
 ## Supported File Types
