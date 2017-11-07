@@ -6,7 +6,7 @@ Route-level file type validation for [hapi](https://github.com/hapijs/hapi) pars
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-  - [`validate(payload, options, fn)`](#validatepayload-options-fn)
+  - [`validate(payload, options)`](#validatepayload-options)
     - [Hapi](#hapi)
     - [Standalone](#standalone)
 - [Supported File Types](#supported-file-types)
@@ -19,8 +19,8 @@ $ npm install houdin
 ```
 
 ## Usage
-### `validate(payload, options, fn)`
-Validates all `Buffer` values in a `payload` given a `whitelist` of file types provided in the `options`. Results in a [joi](https://github.com/hapijs/joi)-like `ValidationError` if some file type is not allowed or unknown otherwise it returns the original parsed payload to account for additional custom validation.
+### `validate(payload, options)`
+Validates all `Buffer` values in a `payload` given a `whitelist` of file types provided in the `options`. Throws a [joi](https://github.com/hapijs/joi)-like `ValidationError` if some file type is not allowed or unknown otherwise it returns the original payload.
 
 #### Hapi
 
