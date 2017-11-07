@@ -1,5 +1,12 @@
 # Changelog
 
+## [v5.0.1](https://github.com/ruiquelhas/houdin/tree/v5.0.1) (2017-11-07)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v5.0.0...v5.0.1)
+
+**Merged pull requests:**
+
+- Update documentation to match the API [\#39](https://github.com/ruiquelhas/houdin/pull/39) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v5.0.0](https://github.com/ruiquelhas/houdin/tree/v5.0.0) (2017-11-06)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v4.0.2...v5.0.0)
 
