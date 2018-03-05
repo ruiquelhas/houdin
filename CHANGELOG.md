@@ -1,5 +1,16 @@
 # Changelog
 
+## [v5.0.2](https://github.com/ruiquelhas/houdin/tree/v5.0.2) (2018-03-05)
+[Full Changelog](https://github.com/ruiquelhas/houdin/compare/v5.0.1...v5.0.2)
+
+**Closed issues:**
+
+- hoek security issues [\#40](https://github.com/ruiquelhas/houdin/issues/40)
+
+**Merged pull requests:**
+
+- Update dependencies [\#41](https://github.com/ruiquelhas/houdin/pull/41) ([ruiquelhas](https://github.com/ruiquelhas))
+
 ## [v5.0.1](https://github.com/ruiquelhas/houdin/tree/v5.0.1) (2017-11-07)
 [Full Changelog](https://github.com/ruiquelhas/houdin/compare/v5.0.0...v5.0.1)
 
