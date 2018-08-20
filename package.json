@@ -35,7 +35,7 @@
     "multi-part": "2.x.x"
   },
   "dependencies": {
-    "file-type": "7.x.x",
+    "file-type": "9.x.x",
     "hoek": "5.x.x"
   },
   "engines": {
